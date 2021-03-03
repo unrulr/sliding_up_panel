@@ -255,19 +255,12 @@ class _SlidingUpPanelState extends State<SlidingUpPanel>
       children: <Widget>[
         //make the back widget take up the entire back side
         widget.body != null
-            ? AnimatedBuilder(
-                animation: _ac,
-                builder: (context, child) {
-                  return Positioned(
-                    top: widget.parallaxEnabled ? _getParallax() : 0.0,
-                    child: child,
-                  );
-                },
-                child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
-                  child: widget.body,
-                ),
+            ? Positioned(
+                top: widget.parallaxEnabled ? _getParallax() : 0.0,
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: widget.body,
               )
             : Container(),
 
